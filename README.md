@@ -14,3 +14,34 @@ using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 PM>Install-Package WindowsAzure.Storage
 PM>Install-Package Microsoft.WindowsAzure.ConfigurationManager
 ```
+
+## 主要程式碼
+
+```
+ // Retrieve storage account from connection string.
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+
+            // Create the blob client.
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+            // Retrieve reference to a previously created container.
+            CloudBlobContainer container = blobClient.GetContainerReference("downloadfile");
+
+            // Loop over items within the container and output the length and URI.
+            foreach (IListBlobItem item in container.ListBlobs(null, true))
+            {
+                try
+                {
+                    
+                    string myItemEndPoint = item.Uri.ToString().Replace("https://YourStorageAccountName.blob.core.windows.net/YourBlobServiceContainerName/", "");
+                    CloudBlob blob = container.GetBlobReference(myItemEndPoint);
+                    blob.Properties.CacheControl = "public,max-age=18000";//3600/H
+                    blob.SetProperties();
+                    Console.WriteLine(myItemEndPoint);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("can't find");
+                }
+            }
+```

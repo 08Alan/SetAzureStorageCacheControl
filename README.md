@@ -4,6 +4,10 @@
 ## 但超多檔案呢
 ## 試試我吧!
 
+- Azure SDKs:v2.9
+- Visual Studio 2017
+- update:20170519
+
 ```
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types

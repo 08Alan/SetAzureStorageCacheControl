@@ -18,7 +18,7 @@ PM>Install-Package Microsoft.WindowsAzure.ConfigurationManager
 ## 主要程式碼
 
 ```
- // Retrieve storage account from connection string.
+            // Retrieve storage account from connection string.
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
 
             // Create the blob client.

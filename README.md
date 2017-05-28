@@ -1,8 +1,8 @@
 # Set Azure Storage CacheControl
 
 ## 您可以利用Azure Storage Explorer或Portal進行單個檔案的設置
-## 但超多檔案呢
-## 試試我吧!
+## 但超多檔案時必須使用Azure SDK 或 Azure PowerShell進行
+## 範例程式提供
 
 - Azure SDKs:v2.9
 - Visual Studio 2017
